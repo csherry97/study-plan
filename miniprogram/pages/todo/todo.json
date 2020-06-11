@@ -1,0 +1,8 @@
+{
+  "usingComponents": {},
+  "backgroundColor": "#FFD56C",
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#FFD56C",
+  "navigationBarTitleText": "今日待办",
+  "navigationBarTextStyle": "black"
+}

@@ -1,0 +1,71 @@
+
+  <!--上部数据展示-->
+  <image class="sub-container" src="../../images/待办背景.png" mode="widthFix"></image>
+    <button class='date'>
+      <image class='dateImg' src='../../images/calendar.png'></image>
+      <view>2020.06.10</view>
+    </button>
+    <view class="info-container">
+      <view class="col-4">
+        <view class="col-4-text">学习时间</view>
+        <view class="col-4-number1">6h</view>
+      </view>
+      <view class="col-4">
+        <view class="col-4-text">已完成</view>
+        <view class="col-4-number1">5</view>
+      </view>
+      <view class="col-4">
+        <view class="col-4-text">未完成时间</view>
+        <view class="col-4-number2">1h</view>
+      </view>
+      <view class="col-4">
+        <view class="col-4-text">未完成</view>
+        <view class="col-4-number2">1</view>
+      </view>
+      <button class="add-item" bindtap="powerDrawer" data-statu="open">添加</button>
+    </view>
+
+<!--弹窗打卡表单--> 
+<!--mask-->  
+<view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view> 
+<!--content-->  
+
+<!--使用animation属性指定需要执行的动画-->  
+<view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">  
+    <!--drawer title-->
+    <view class="drawer_title">
+      <view class="drawer_title_text">添加待办</view> 
+    </view>
+
+    <!--drawer content-->
+    <view class="drawer_content">
+      <view class="topgrid">  
+        <label class="title col-0">分类</label> 
+        <view class="long input placeholder_text" bindtap='bindShowMsg' >{{studytype}}</view>  
+      </view>
+      <view class="grid">  
+        <label class="title col-0">名称</label>  
+        <input class="long input" name="name" placeholder="请输入待办名称"></input>  
+      </view>
+      <view class="grid">  
+        <label class="title col-0">目标时间</label>  
+        <view class="col-1">
+          <input class="short input" name="name" placeholder="请输入数字"></input>
+          <text class="hour">小时</text>  
+        </view>
+      </view>
+    </view>
+<!-- 下拉需要显示的列表 -->
+    <view class="select_box" wx:if="{{select}}">
+        <view class="select_one" bindtap="mySelect" data-name="学习">学习</view>
+        <view class="select_one" bindtap="mySelect" data-name="工作">工作</view>
+        <view class="select_one" bindtap="mySelect" data-name="娱乐">娱乐</view>
+    </view>
+
+<!-- drawer button -->
+    <view class="btn_row">
+      <view class="btn_cancel" bindtap="powerDrawer" bindtap="powerDrawer" data-statu="close">取消</view>
+      <view class="btn_ok" bindtap="powerDrawer" bindtap="powerDrawer" data-statu="close">确定</view>
+    </view>
+</view>
+

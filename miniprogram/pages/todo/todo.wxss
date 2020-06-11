@@ -1,0 +1,237 @@
+page{
+  background:#f9f9f9;
+}
+.sub-container{
+  margin-top:-40rpx;
+  width: 750rpx;
+  height: 470rpx;
+  background-color: #ffd56c;
+  border-left: none;
+  border-right: none; 
+  display: inherit;
+}
+.date {
+  width:600rpx;
+  height: 110rpx;
+  margin-top: -380rpx;
+  background-color: white;
+  color: #4a4a4a;
+  font-size: 18 rpx;
+  font-family: PingFangSC;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0rpx;
+}
+.dateImg {
+  margin-right: 30rpx;
+  margin-top: 10rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.info-container{
+  margin-left:76rpx;
+  width:600rpx;
+  height: 246rpx;
+  background-color: white;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.col-4{
+  margin-top:-15px;
+  flex: 0 0 auto;
+  width: 25%;
+  text-align: center;
+  padding: 40rpx 0;
+ }
+.col-4-text{
+  font-size:24rpx;
+  color: #d7d1c8;
+}
+.col-4-number1{
+  font-size:40rpx;
+  color: #ffd56c;
+}
+.col-4-number2{
+  font-size:40rpx;
+  color: #e5943f;
+}
+.add-item{
+  margin-top: -60rpx;
+  width: 496rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  background-color: #b5aa99;
+  color:white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.add-item::after{ border: none; }
+
+/*弹窗打卡表单*/
+  
+/*button*/  
+.btn {  
+  width: 80%;  
+  padding: 20rpx 0;  
+  border-radius: 10rpx;  
+  text-align: center;  
+  margin: 40rpx 10%;  
+  background: #000;  
+  color: #fff;  
+}
+  /*mask*/  
+  .drawer_screen {  
+    width: 100%;  
+    height: 100%;  
+    position: fixed;  
+    top: 0;  
+    left: 0;  
+    z-index: 1000;  
+    background: #000;  
+    opacity: 0.7;  
+    overflow: hidden;  
+  }  
+    
+  /*content*/  
+  .drawer_box {  
+    width: 640rpx;  
+    overflow: hidden;  
+    position: fixed;  
+    top: 30%;  
+    left: 0;  
+    z-index: 1001;  
+    background: #ffffff;  
+    margin: -150rpx 50rpx 0 50rpx;  
+    border-radius: 0px;  
+  }  
+  .drawer_title{
+    height: 100rpx;
+    background:#ffd56c;
+    z-index: 1002;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+  }
+  .drawer_title_text{  
+    font-size: 36rpx; 
+    font-family: "PingFangSC";  
+    text-align: center;  
+    color: #4a4a4a;
+  }  
+.topgrid{
+  padding-top:60rpx;
+  padding-left:42rpx;
+  padding-right:42rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.grid{
+  padding-top:40rpx;
+  padding-left:42rpx;
+  padding-right:42rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.long{
+  width: 366rpx;
+  height: 64rpx;
+  border: 2rpx solid #979797;
+}
+.col-1{
+  width: 366rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.short{
+  width: 268rpx;
+  height: 64rpx;
+  border: 2rpx solid #979797;
+}
+.title {  
+  font-family: PingFangSC;
+  font-size: 36rpx;
+  color: #4a4a4a;
+}
+.input{
+  font-size: 32rpx;
+  color: black;
+  padding-left: 10rpx;
+}
+.hour{
+  font-size: 32rpx;
+  color: #4a4a4a;
+  padding-top:26rpx;
+}
+.btn_row{
+  margin-top: 80rpx;
+  width: 100%;
+  height:100rpx;
+  border-top: 1rpx solid #f0f0f0;
+  font-size:36rpx;
+  display: flex;
+  align-items: center;
+}
+.btn_cancel{
+  width: 50%;
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9b9b9b;
+  border-right: 1rpx solid #f0f0f0;
+}
+
+.btn_ok{
+  width: 50%;
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffd56c;
+}
+
+.placeholder_text{
+  display: flex;
+  align-items: center;
+  color:#9b9b9b;
+}
+
+
+.select_box {
+  background-color: white;
+  padding: 0 10rpx;
+  width: 366rpx;
+  position: absolute;
+  top: 240rpx;
+  left:216rpx;
+  z-index: 100;
+  overflow: hidden;
+  animation: myfirst 0.5s;
+}
+
+@keyframes myfirst {
+  from {
+      height: 0rpx;
+  }
+
+  to {
+      height: 210rpx;
+  }
+}
+
+.select_one {
+  height: 64rpx;
+  border: 1px solid #f0f0f0;
+  padding-left:20rpx;
+  display: flex;
+  align-items: center;
+  color:#4a4a4a;
+}
