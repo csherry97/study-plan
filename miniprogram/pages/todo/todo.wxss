@@ -78,15 +78,6 @@ page{
 /*弹窗打卡表单*/
   
 /*button*/  
-.btn {  
-  width: 80%;  
-  padding: 20rpx 0;  
-  border-radius: 10rpx;  
-  text-align: center;  
-  margin: 40rpx 10%;  
-  background: #000;  
-  color: #fff;  
-}
   /*mask*/  
   .drawer_screen {  
     width: 100%;  
@@ -105,7 +96,7 @@ page{
     width: 640rpx;  
     overflow: hidden;  
     position: fixed;  
-    top: 30%;  
+    top: 20%;  
     left: 0;  
     z-index: 1001;  
     background: #ffffff;  
@@ -151,7 +142,7 @@ page{
   justify-content: space-between;
 }
 .short{
-  width: 268rpx;
+  width: 100rpx;
   height: 64rpx;
   border: 2rpx solid #979797;
 }
@@ -166,7 +157,7 @@ page{
   padding-left: 10rpx;
 }
 .hour{
-  font-size: 32rpx;
+  font-size: 26rpx;
   color: #4a4a4a;
   padding-top:26rpx;
 }
@@ -201,7 +192,7 @@ page{
 .placeholder_text{
   display: flex;
   align-items: center;
-  color:#9b9b9b;
+  color:#4a4a4a;
 }
 
 

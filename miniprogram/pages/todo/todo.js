@@ -3,9 +3,13 @@ Page({
     data: {  
       showModalStatus: false,
       select: false,
-      studytype: "选择项目分类"
+      studytype: "学习",
+      studyitem: "",
+      target_hour: null,
+      target_minute:0
     }, 
 
+    /**下拉菜单**/
     bindShowMsg() {
         this.setData({
             select:!this.data.select
@@ -19,7 +23,52 @@ Page({
             select: false
        })
    },
+   /**input*/
+   getItemValue: function(e){
+     this.setData({studyitem: e.detail.value});
+   },
 
+   getHourValue: function(e){
+    this.setData({target_hour: e.detail.value});
+   },
+
+   getMinuteValue: function(e){
+    this.setData({target_minute: e.detail.value});
+   },
+
+   /**上传数据至数据库 */
+   saveNewTodo: function(){
+     let self = this,
+     studytype=self.data.studytype,
+     studyitem=self.data.studyitem,
+     target_hour=self.data.target_hour,
+     target_minute=self.data.target_minute;
+     if (target_hour>18 || target_hour==null || (target_hour==0 && target_minute==0)|| target_minute>60){
+      wx.showToast({
+        title: '目标时间输入错误',
+        duration: 2000
+      })
+      return;
+     } else if (studyitem==""){
+      wx.showToast({
+        title: '请输入代办名',
+        duration: 2000
+      })
+      return;
+     }
+     const db = wx.cloud.database({});
+     const cont = db.collection('data');
+     cont.add({
+       data:{
+         type:self.data.studytype,
+         item:self.data.studyitem,
+         hour: self.data.target_hour,
+         minute: self.data.target_minute
+       },
+    })
+   },
+
+   /**弹窗动画**/
     powerDrawer: function (e) {  
       var currentStatu = e.currentTarget.dataset.statu;  
       this.util(currentStatu)  
@@ -32,11 +81,11 @@ Page({
         duration: 200,  //动画时长  
         timingFunction: "linear", //线性  
         delay: 0  //0则不延迟  
-      });  
-        
+      }); 
+
       // 第2步：这个动画实例赋给当前的动画实例  
-      this.animation = animation;  
-    
+      this.animation = animation;
+
       // 第3步：执行第一组动画  
       animation.opacity(0).rotateX(-100).step();  
     
@@ -63,7 +112,7 @@ Page({
           );  
         }  
       }.bind(this), 200)  
-      
+
       // 显示  
       if (currentStatu == "open") {  
         this.setData(  
@@ -73,5 +122,5 @@ Page({
         );  
       }  
     }  
-    
+
   })  

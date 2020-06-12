@@ -45,13 +45,15 @@
       </view>
       <view class="grid">  
         <label class="title col-0">名称</label>  
-        <input class="long input" name="name" placeholder="请输入待办名称"></input>  
+        <input class="long input" name="name" placeholder="请输入待办名称" bindinput="getItemValue"></input>  
       </view>
       <view class="grid">  
         <label class="title col-0">目标时间</label>  
         <view class="col-1">
-          <input class="short input" name="name" placeholder="请输入数字"></input>
+          <input class="short input" name="name" type="number" bindinput="getHourValue"></input>
           <text class="hour">小时</text>  
+          <input class="short input" name="name" type="number" bindinput="getMinuteValue" placeholder="0"></input>
+          <text class="hour">分钟</text> 
         </view>
       </view>
     </view>
@@ -65,7 +67,7 @@
 <!-- drawer button -->
     <view class="btn_row">
       <view class="btn_cancel" bindtap="powerDrawer" bindtap="powerDrawer" data-statu="close">取消</view>
-      <view class="btn_ok" bindtap="powerDrawer" bindtap="powerDrawer" data-statu="close">确定</view>
+      <view class="btn_ok" bindtap="powerDrawer" bindtap="powerDrawer" data-statu="close" bindtap="saveNewTodo">确定</view>
     </view>
 </view>
 
