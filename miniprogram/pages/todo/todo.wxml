@@ -67,7 +67,7 @@
 <!-- drawer button -->
     <view class="btn_row">
       <view class="btn_cancel" bindtap="powerDrawer" bindtap="powerDrawer" data-statu="close">取消</view>
-      <view class="btn_ok" bindtap="powerDrawer" bindtap="powerDrawer" data-statu="close" bindtap="saveNewTodo">确定</view>
+      <view class="btn_ok" bindtap="powerDrawer" data-statu="close" bindtap="saveNewTodo">确定</view>
     </view>
 </view>
 
