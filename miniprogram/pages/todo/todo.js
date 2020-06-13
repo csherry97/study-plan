@@ -1,13 +1,33 @@
+var util = require('../../utils/util.js');
+
 Page({ 
 
-    data: {  
+    data: {
+      array:[],
       showModalStatus: false,
       select: false,
       studytype: "学习",
       studyitem: "",
-      target_hour: null,
-      target_minute:0
+      target_hour: 0,
+      target_minute:0,
+      status: "notfinished"
     }, 
+
+    onShow: function(){
+      let that = this;
+      wx.cloud.init();
+      wx.cloud.database().collection("data").get({
+        success(res){
+          console.log("请求成功",res);
+          that.setData({
+            array:res.data
+          })
+        },
+        fail(res){
+          console.log("请求失败",res);
+        }
+      })
+    },
 
     /**下拉菜单**/
     bindShowMsg() {
@@ -111,18 +131,19 @@ Page({
       })
       return;
      }
+     var convertHour = util.convertHour(target_hour,target_minute);
      const db = wx.cloud.database({});
      const cont = db.collection('data');
      cont.add({
        data:{
          type:self.data.studytype,
          item:self.data.studyitem,
-         hour: self.data.target_hour,
-         minute: self.data.target_minute
+         target_time: convertHour,
+         status:self.data.status
        },
     })
-    this.util("close")
+    this.util("close"),
+    this.onShow(),
+    this.onReady()
    }
-
-
   })  

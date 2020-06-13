@@ -1,29 +1,44 @@
 
   <!--上部数据展示-->
   <image class="sub-container" src="../../images/待办背景.png" mode="widthFix"></image>
-    <button class='date'>
-      <image class='dateImg' src='../../images/calendar.png'></image>
-      <view>2020.06.10</view>
-    </button>
-    <view class="info-container">
-      <view class="col-4">
-        <view class="col-4-text">学习时间</view>
-        <view class="col-4-number1">6h</view>
-      </view>
-      <view class="col-4">
-        <view class="col-4-text">已完成</view>
-        <view class="col-4-number1">5</view>
-      </view>
-      <view class="col-4">
-        <view class="col-4-text">未完成时间</view>
-        <view class="col-4-number2">1h</view>
-      </view>
-      <view class="col-4">
-        <view class="col-4-text">未完成</view>
-        <view class="col-4-number2">1</view>
-      </view>
-      <button class="add-item" bindtap="powerDrawer" data-statu="open">添加</button>
+  <button class='date'>
+    <image class='dateImg' src='../../images/calendar.png'></image>
+    <view>2020.06.10</view>
+  </button>
+  <view class="info-container">
+    <view class="col-4">
+      <view class="col-4-text">学习时间</view>
+      <view class="col-4-number1">6h</view>
     </view>
+    <view class="col-4">
+      <view class="col-4-text">已完成</view>
+      <view class="col-4-number1">5</view>
+    </view>
+    <view class="col-4">
+      <view class="col-4-text">未完成时间</view>
+      <view class="col-4-number2">1h</view>
+    </view>
+    <view class="col-4">
+      <view class="col-4-text">未完成</view>
+      <view class="col-4-number2">1</view>
+    </view>
+    <button class="add-item" bindtap="powerDrawer" data-statu="open">添加</button>
+  </view>
+  <!--下部显示条目"-->
+  <view class="large-container">
+  <view class="small-container" wx:for="{{array}}">
+    <view class="small-container_sub">
+      <image class="status_img" src='../../images/{{item.status}}.png'></image>
+      <image class="type_img" src='../../images/{{item.type}}.png'></image>
+      <view class="item-text">{{item.item}}</view>
+    </view>
+    <view class="time-container">
+      <text>目标：</text>
+      <text>{{item.target_time}} </text>
+      <text>小时</text>
+    </view>
+    </view>
+</view>
 
 <!--弹窗打卡表单--> 
 <!--mask-->  
@@ -66,8 +81,8 @@
 
 <!-- drawer button -->
     <view class="btn_row">
-      <view class="btn_cancel" bindtap="powerDrawer" bindtap="powerDrawer" data-statu="close">取消</view>
-      <view class="btn_ok" bindtap="powerDrawer" data-statu="close" bindtap="saveNewTodo">确定</view>
+      <view class="btn_cancel" bindtap="powerDrawer" data-statu="close">取消</view>
+      <view class="btn_ok" data-statu="close" bindtap="saveNewTodo">确定</view>
     </view>
 </view>
 
