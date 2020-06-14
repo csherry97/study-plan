@@ -24,19 +24,63 @@
     </view>
     <button class="add-item" bindtap="powerDrawer" data-statu="open">添加</button>
   </view>
+
   <!--下部显示条目"-->
   <view class="large-container">
-  <view class="small-container" wx:for="{{array}}">
-    <view class="small-container_sub">
-      <image class="status_img" src='../../images/{{item.status}}.png'></image>
-      <image class="type_img" src='../../images/{{item.type}}.png'></image>
-      <view class="item-text">{{item.item}}</view>
-    </view>
-    <view class="time-container">
-      <text>目标：</text>
-      <text>{{item.target_time}} </text>
-      <text>小时</text>
-    </view>
+    <view class="container" wx:for="{{array}}">
+      <view class="small-container">
+        <view class="small-container_sub">
+          <image class="status_img" src='../../images/{{item.status}}.png'></image>
+          <image class="type_img" src='../../images/{{item.type}}.png'></image>
+          <view class="item-text">{{item.item}}</view>
+        </view>
+        <view class="time-container">
+          <text>目标：</text>
+          <text>{{item.target_time}} </text>
+          <text>小时</text>
+        </view>
+      </view>
+      <view class="btn_row2">
+      <view class="btn_absence" bindtap="powerDrawer" data-currentID="{{item._id}}" data-statu="open">
+        <image class='button-icon' src='../../images/请假.png'></image>
+        <view>请假</view>
+      </view>
+      <view class="btn_check" >
+        <image class='button-icon' src='../../images/打卡.png'></image>
+        <view>打卡</view>
+      </view>
+  </view>
+
+  <!--弹窗请假表单--> 
+  <!--mask-->  
+  <view class="drawer_screen" bindtap="powerDrawer" data-statu="close" wx:if="{{showModalStatus}}"></view> 
+  <!--content-->  
+
+  <!--使用animation属性指定需要执行的动画-->  
+  <view animation="{{animationData}}" class="drawer_box" wx:if="{{showModalStatus}}">  
+      <!--drawer title-->
+      <view class="drawer_title">
+        <view class="drawer_title_text">请假</view> 
+      </view>
+
+      <!--drawer content-->
+      <view class="drawer_content">
+        <view class="topgrid">
+          <text>{{item.item}}</text>    
+          <text>{{item.target_time}}</text>  
+        </view>
+        <view class="grid">  
+          <label class="title col-0">请假理由</label>  
+          <input class="h100 input" name="name" placeholder="请输入请假理由" bindinput="getItemValue"></input>  
+        </view>
+      </view>
+
+  <!-- drawer button -->
+      <view class="btn_row">
+        <view class="btn_cancel" bindtap="powerDrawer" data-statu="close">取消</view>
+        <view class="btn_ok" data-statu="close">确定</view>
+      </view>
+  </view>
     </view>
 </view>
 

@@ -76,7 +76,6 @@ page{
 .add-item::after{ border: none; }
 
 /*弹窗打卡表单*/
-  
 /*button*/  
   /*mask*/  
   .drawer_screen {  
@@ -146,7 +145,7 @@ page{
   height: 64rpx;
   border: 2rpx solid #979797;
 }
-.title {  
+.title{  
   font-family: PingFangSC;
   font-size: 36rpx;
   color: #4a4a4a;
@@ -234,11 +233,9 @@ page{
   overflow-y: scroll;
 }
 .small-container{
-  margin-left: 15rpx;
-  width: 710rpx;
-  height: 90rpx;
-  margin-top: 10rpx;
-  border: 4rpx solid #f2f2f2;
+  width:100%;
+  height: 45px;
+  border-bottom: 4rpx solid #f2f2f2;
   background-color: #ffffff;
   display: flex;
   align-items: center;
@@ -277,3 +274,44 @@ page{
   justify-content: center;
   margin-right: 22rpx;
 }
+
+/**打卡button**/
+.container{
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  width: 700rpx;
+  background-color: #ffffff;
+  border: 4rpx solid #f2f2f2;
+}
+.button-icon{
+  padding-right: 8rpx;
+  width: 32rpx;
+  height: 28rpx;
+}
+
+.btn_row2{
+  width: 100%;
+  height:68rpx;
+  font-size:24rpx;
+  color: #6b6c6d;
+  display: flex;
+  align-items: center;
+}
+.btn_absence{
+  width: 50%;
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn_check{
+  width: 50%;
+  height:100%;
+  background-color: #ffd56c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
