@@ -6,6 +6,10 @@ Page({
       array:[],
       showModalStatus: "na",
       select: false,
+      start_date: "",
+      end_date: "",
+      /**data set字段 */
+      date:"",
       studytype: "学习",
       studyitem: "",
       target_hour: 0,
@@ -19,6 +23,25 @@ Page({
       unfinishedTime: 0
     }, 
 
+    /**top date change */
+    bindDateChange: function(e) {
+      console.log('picker发送选择改变，携带值为', e.detail.value)
+      this.setData({
+        date: e.detail.value
+      })
+    },
+
+    onLoad: function(){
+      var currentDate=util.getDate(0);
+      var endDate=util.getDate(6);
+      this.setData({
+        start_date: currentDate,
+        end_date: endDate,
+        date:currentDate,
+      });
+      console.log(this.start_date);
+    },
+
     onShow: function(){
       let that = this;
       let _array = [];
@@ -29,7 +52,6 @@ Page({
       wx.cloud.init();
       wx.cloud.database().collection("data").get({
         success(res){
-          console.log("请求成功",res);
           _array = res.data;
           _array.forEach((value, index) => {
             value['isShow'] = false;
@@ -171,6 +193,7 @@ Page({
      studyitem=self.data.studyitem,
      target_hour=self.data.target_hour,
      target_minute=self.data.target_minute;
+
      if (target_hour>18 || target_hour==null || (target_hour==0 && target_minute==0)|| target_minute>60){
       wx.showToast({
         title: '目标时间输入错误',
@@ -193,11 +216,12 @@ Page({
          item:self.data.studyitem,
          target_time: convertHour,
          status:self.data.status,
-         reason:self.data.reason
+         reason:self.data.reason,
+         date: self.data.date,
        },
     })
     this.util("close"),
-    this.onShow()
+    setTimeout(this.onShow,200)
    },
   
   updateAbsence: function(e){
@@ -213,7 +237,7 @@ Page({
     })
     this.setData
     this.util("close"),
-    this.onShow()
+    setTimeout(this.onShow,200)
   },
 
 })  

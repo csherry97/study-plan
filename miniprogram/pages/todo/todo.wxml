@@ -1,10 +1,12 @@
 
   <!--上部数据展示-->
   <image class="sub-container" src="../../images/待办背景.png" mode="widthFix"></image>
-  <button class='date'>
+  <view class='date'>
     <image class='dateImg' src='../../images/calendar.png'></image>
-    <view>2020.06.10</view>
-  </button>
+    <picker mode="date" value="{{date}}" start="{{start_date}}" end="{{end_date}}" bindchange="bindDateChange">
+    <view class="picker">{{date}}</view>
+    </picker>
+  </view>
   <view class="info-container">
     <view class="col-4">
       <view class="col-4-text">学习时间</view>
@@ -27,7 +29,7 @@
 
   <!--下部显示条目"-->
   <view class="large-container">
-    <view class="container" wx:for="{{array}}" wx:if="{{item.status == 'notchecked'}}">
+    <view class="container" wx:for="{{array}}" wx:if="{{item.status == 'notchecked' && item.date == date }}">
       <view class="small-container">
         <view class="small-container_sub">
           <image class="status_img" src='../../images/{{item.status}}.png'></image>
@@ -85,7 +87,7 @@
     </view>
     <!--下部显示条目"-->
     <view class="container" wx:for="{{array}}">
-      <view class="small-container" wx:if="{{item.status != 'notchecked'}}">
+      <view class="small-container" wx:if="{{item.status != 'notchecked' && item.date == date}}">
         <view class="small-container_sub">
           <image class="status_img" src='../../images/{{item.status}}.png'></image>
           <image class="type_img grey" src='../../images/{{item.type}}.png'></image>
@@ -136,7 +138,9 @@
     <view class="select_box" wx:if="{{select}}">
         <view class="select_one" bindtap="mySelect" data-name="学习">学习</view>
         <view class="select_one" bindtap="mySelect" data-name="工作">工作</view>
-        <view class="select_one" bindtap="mySelect" data-name="娱乐">娱乐</view>
+        <view class="select_one" bindtap="mySelect" data-name="生活">生活</view>
+        <view class="select_one" bindtap="mySelect" data-name="运动">运动</view>
+        <view class="select_one" bindtap="mySelect" data-name="其他">其他</view>
     </view>
 
 <!-- drawer button -->
